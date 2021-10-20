@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,19 +12,25 @@ public class PlayerMovement : MonoBehaviour {
     float horizontalMove = 0f;
     bool jump = false;
     public CharacterController2D controller;
+    public static bool inputEnabled = true;
 
     void Start()
     {
+
         controller = GetComponent<CharacterController2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
+        if(inputEnabled){
+
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+            }
         }
     }
 
@@ -34,4 +40,17 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
+
+    public void EnableInput(){
+        //Debug.Log("Enabling input");
+        inputEnabled = true;
+    }
+
+
+    public void DisableInput(){
+        //Debug.Log("Disabling input");
+        inputEnabled = false;
+    }
+
+
 }
