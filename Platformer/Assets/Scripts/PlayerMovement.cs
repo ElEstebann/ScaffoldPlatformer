@@ -13,11 +13,13 @@ public class PlayerMovement : MonoBehaviour {
     bool jump = false;
     public CharacterController2D controller;
     public static bool inputEnabled = true;
+    AudioSource jumpsound;
 
     void Start()
     {
 
         controller = GetComponent<CharacterController2D>();
+        jumpsound = GetComponent<AudioSource>();
         
     }
 
@@ -30,6 +32,8 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
+                jumpsound.Play();
+                
             }
         }
     }
