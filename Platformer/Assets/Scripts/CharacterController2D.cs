@@ -30,19 +30,36 @@ public class CharacterController2D : MonoBehaviour {
     public GameObject FirePoints;
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
-    //private Animator animator; //If using animations
+    private Animator anim; //If using animations
 
     void Awake()
     {
         m_RigidBody2D = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>(); //get animator component
+        anim = GetComponent<Animator>(); //get animator component
     }
 
     void FixedUpdate()
     {
+        float moving = Input.GetAxisRaw("Horizontal");
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
         if (m_Grounded)
+        {
             m_AirJumpsLeft = m_AirJumps;
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
+        }
+
+        if (moving == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+        else
+        {
+            anim.SetBool("isRunning", true);
+        }
     }
 
     private void Update()
