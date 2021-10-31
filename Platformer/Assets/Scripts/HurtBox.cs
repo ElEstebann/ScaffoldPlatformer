@@ -13,7 +13,7 @@ public class HurtBox : MonoBehaviour {
     //Gets call when a trigger collision happens on the game scene
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")//if Player hits the weakspot then
+        if(collision.tag == "PlayerAttack")//if Player hits the weakspot then
         {
             mainObject.SetActive(false); //Deactivate the mainObject scene object. We could destroy, but in order to still have access to such object 
                                          //so we can do things like reviving it, we deactivate it instead. 
