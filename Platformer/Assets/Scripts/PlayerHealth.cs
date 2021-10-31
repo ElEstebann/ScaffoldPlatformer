@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour {
     public GameManager gameManager;
     private SpriteRenderer playerSprite;
     private CharacterController2D characterController2D;
+    private bool inHurtBox = false;
 
     void Start () {
         currentHealth = maxHealth; //At start of scene, player gets max health
@@ -61,16 +62,27 @@ public class PlayerHealth : MonoBehaviour {
         if (collision.gameObject.tag == "HurtBox" && this.gameObject.transform.position.y - collision.gameObject.transform.position.y >= 0)
         {
             characterController2D.m_RigidBody2D.velocity = new Vector2(characterController2D.m_RigidBody2D.velocity.x, 25);
+            inHurtBox = true;
 
         }
         if (collision.gameObject.tag == "HitBox")
         {
-            if (!characterController2D.m_Immune)
+            if (!characterController2D.m_Immune && !inHurtBox)
             {
                 StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "HurtBox")
+        {
+            inHurtBox = false;
+
+        }
+
     }
 
     //Calls Take Damage, and makes Player Immune for a short interval before they can get hit again

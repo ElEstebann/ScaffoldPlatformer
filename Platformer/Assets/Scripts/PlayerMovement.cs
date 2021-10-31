@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
     public static bool inputEnabled = true;
     AudioSource jumpsound;
+    //private bool shootingEnabled = true;
 
     void Start()
     {
@@ -35,6 +36,20 @@ public class PlayerMovement : MonoBehaviour {
                 jumpsound.Play();
                 
             }
+            /*
+            if (Input.GetButton("FireRight")){
+                Debug.Log("Right");
+            }
+            else if(Input.GetButton("FireLeft")){
+                Debug.Log("Left");
+            }
+            else if(Input.GetButton("FireUp")){
+                Debug.Log("Up");
+            }
+            else if(Input.GetButton("FireDown")){
+                Debug.Log("Down");
+            }
+            */
         }
     }
 

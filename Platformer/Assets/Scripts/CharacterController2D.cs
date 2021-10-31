@@ -27,6 +27,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_Immune = false;
     private int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
+    public GameObject FirePoints;
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     //private Animator animator; //If using animations
@@ -100,10 +101,17 @@ public class CharacterController2D : MonoBehaviour {
     //Turns around the gameObject attach to this script
     void Flip()
     {
+        
         m_FacingRight = !m_FacingRight;
+        /*
         Vector2 localScale = gameObject.transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+        
+        Replace upper code with:*/
+        transform.Rotate(0f,180f,0f);
+        FirePoints.transform.Rotate(0f,180f,0f);
+        
     }
 
     void OnTriggerEnter2D(Collider2D collide)
