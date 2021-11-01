@@ -6,7 +6,7 @@ using TMPro;
 public class MoneyDisplay : MonoBehaviour
 {
     [SerializeField] private TMP_Text cash;
-    [SerializeField] private int money = 0;
+    public int money = 0;
 
     void Update()
     {

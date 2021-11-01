@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cash: {fileID: 165502969}
-  money: 155
+  money: 0
 --- !u!1 &185277263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2340,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114118936730916894, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: bank
+      value: 
+      objectReference: {fileID: 165502971}
     - target: {fileID: 114140910938686034, guid: dda7916924b759248bf4647e57f00af7,
         type: 3}
       propertyPath: patrolLocations.Array.size
