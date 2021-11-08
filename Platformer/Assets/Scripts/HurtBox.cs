@@ -11,6 +11,12 @@ public class HurtBox : MonoBehaviour {
 
     public GameObject mainObject;
     public MoneyDisplay bank;
+    [SerializeField] public Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>(); //get animator component
+    }
 
     //Gets call when a trigger collision happens on the game scene
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +25,8 @@ public class HurtBox : MonoBehaviour {
         {
             mainObject.SetActive(false); //Deactivate the mainObject scene object. We could destroy, but in order to still have access to such object 
                                          //so we can do things like reviving it, we deactivate it instead. 
+            anim.SetBool("isDead", true);
+            anim.Play("isDead");
             bank.money += 30;
         }
     }
