@@ -23,7 +23,7 @@ public class HurtBox : MonoBehaviour {
     {
         if(collision.tag == "PlayerAttack")//if Player hits the weakspot then
         {
-            mainObject.SetActive(false); //Deactivate the mainObject scene object. We could destroy, but in order to still have access to such object 
+            //mainObject.SetActive(false); //Deactivate the mainObject scene object. We could destroy, but in order to still have access to such object 
                                          //so we can do things like reviving it, we deactivate it instead. 
             anim.SetBool("isDead", true);
             anim.Play("isDead");
