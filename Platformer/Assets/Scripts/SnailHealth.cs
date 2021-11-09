@@ -30,7 +30,7 @@ public class SnailHealth : MonoBehaviour
         currentHealth -= damage;
 		float health = currentHealth / maxHealth;
 		healthBar.fillAmount = health;
-		if(currentHealth <= 0)      //If health goes to 0 or below, call GameOver in GameManager
+		if(currentHealth == 0)      //If health goes to 0 or below, call GameOver in GameManager
 		{
             StartCoroutine(Deactivate());
             bank.money += 30;
