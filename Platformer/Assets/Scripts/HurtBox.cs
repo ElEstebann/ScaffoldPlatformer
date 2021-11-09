@@ -11,7 +11,7 @@ public class HurtBox : MonoBehaviour
 {
 
     public GameObject mainObject;
-    public MoneyDisplay bank;
+    //public MoneyDisplay bank;
     //public Animator anim;
 
     void Awake()
@@ -25,7 +25,7 @@ public class HurtBox : MonoBehaviour
         if (collision.tag == "PlayerAttack")//if Player hits the weakspot then
         {
             //StartCoroutine(Deactivate());
-            bank.money += 30;
+            //bank.money += 30;
             //anim.SetBool("isDead", true);
             //anim.Play("Anim");
             //mainObject.SetActive(false); //Deactivate the mainObject scene object. We could destroy, but in order to still have access to such object 
