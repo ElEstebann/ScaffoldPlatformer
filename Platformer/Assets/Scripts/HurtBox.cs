@@ -12,11 +12,11 @@ public class HurtBox : MonoBehaviour
 
     public GameObject mainObject;
     public MoneyDisplay bank;
-    public Animator anim;
+    //public Animator anim;
 
     void Awake()
     {
-        anim = GetComponentInParent<Animator>(); //get animator component
+        //anim = GetComponentInParent<Animator>(); //get animator component
     }
 
     //Gets call when a trigger collision happens on the game scene
@@ -24,7 +24,7 @@ public class HurtBox : MonoBehaviour
     {
         if (collision.tag == "PlayerAttack")//if Player hits the weakspot then
         {
-            StartCoroutine(Deactivate());
+            //StartCoroutine(Deactivate());
             bank.money += 30;
             //anim.SetBool("isDead", true);
             //anim.Play("Anim");
@@ -34,10 +34,10 @@ public class HurtBox : MonoBehaviour
         }
     }
 
-    IEnumerator Deactivate()
-    {
-        anim.Play("Anim");
-        yield return new WaitForSeconds(.4f);
-        mainObject.SetActive(false);
-    }
+    //IEnumerator Deactivate()
+    //{
+    //    anim.Play("Anim");
+    //    yield return new WaitForSeconds(.4f);
+    //    mainObject.SetActive(false);
+    //}
 }

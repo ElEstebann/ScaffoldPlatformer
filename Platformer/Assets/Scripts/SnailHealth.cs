@@ -11,9 +11,11 @@ public class SnailHealth : MonoBehaviour
 	public GameObject mainObject;
 	private SpriteRenderer snailSprite;
 	private CharacterController2D characterController2D;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInParent<Animator>(); //get animator component
         currentHealth = maxHealth;
 		healthBar.fillAmount = currentHealth;
 		snailSprite = GetComponent<SpriteRenderer>();
@@ -27,7 +29,8 @@ public class SnailHealth : MonoBehaviour
 		healthBar.fillAmount = health;
 		if(currentHealth <= 0)      //If health goes to 0 or below, call GameOver in GameManager
 		{
-			gameObject.SetActive(false);
+			StartCoroutine(Deactivate());
+			//gameObject.SetActive(false);
 		}
 	}
 
@@ -38,5 +41,12 @@ public class SnailHealth : MonoBehaviour
         {
             this.TakeDamage(1);
         }
+    }
+
+    IEnumerator Deactivate()
+    {
+        anim.Play("Anim");
+        yield return new WaitForSeconds(.4f);
+        mainObject.SetActive(false);
     }
 }
