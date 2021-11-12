@@ -13,7 +13,7 @@ public class RunnerMovement : MonoBehaviour {
     bool jump = false;
     public RunnerController2D controller;
     public static bool inputEnabled = true;
-    public Transform player;
+    //public Transform player;
     public float distanceToJump = 1f;
     public float distanceToStop = 0.5f;
     //AudioSource jumpsound;
@@ -23,32 +23,30 @@ public class RunnerMovement : MonoBehaviour {
     void Start()
     {
 
-        controller = GetComponent<RunnerController2D>();
+        //controller = GetComponent<RunnerController2D>();
         //jumpsound = GetComponent<AudioSource>();
         
     }
 
     // Update is called once per frame
-    void Update()
+    void MoveTowardsPlayer(Transform player)
     {
         
         float direction = player.position.x - transform.position.x;
-        if (player.position.x - transform.position.x < distanceToStop &&  player.position.x - transform.position.x > (distanceToStop * -1)){
-            direction = 0;
-            anim.SetBool("isRunning",false);
-        }
-        else if(direction > 0){
+  
+        if(direction > 0){
             direction = 1;
-            anim.SetBool("isRunning",true);
+            
         }
         else{
             direction = -1;
-            anim.SetBool("isRunning",true);
+            
         }
         horizontalMove = direction * runSpeed;
         if (player.position.y - transform.position.y  - 1 > 0 && Mathf.Abs(player.position.x - transform.position.x) < distanceToJump )
         {
             jump = true;
+            Debug.Log("Jumpe");
             //jumpsound.Play();
             
         }
@@ -73,5 +71,23 @@ public class RunnerMovement : MonoBehaviour {
         inputEnabled = false;
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")//if Player hits the weakspot then
+        {
+            MoveTowardsPlayer(collision.transform);
+            anim.SetBool("isRunning",true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")//if Player hits the weakspot then
+        {
+            
+            anim.SetBool("isRunning",false);
+            horizontalMove = 0;
+        }
+    }
 
 }

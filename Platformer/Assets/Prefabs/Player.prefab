@@ -261,7 +261,7 @@ MonoBehaviour:
   firePointDownRight: {fileID: 5425446830137475033}
   firePointUpLeft: {fileID: 4205984042927417791}
   firePointDownLeft: {fileID: 7422039100089429330}
-  bulletPrefab: {fileID: 2025718194534058788, guid: af5fb3c0d5f81bb44902dbeea0836cf7,
+  bulletPrefab: {fileID: 8489907691847275488, guid: da047d56820753b479dc1c2736756345,
     type: 3}
   shootDelay: 0.2
 --- !u!1 &1057634798996998620

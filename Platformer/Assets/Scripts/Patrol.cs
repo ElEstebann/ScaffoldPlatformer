@@ -16,6 +16,7 @@ public class Patrol : MonoBehaviour {
     [Space]
     [Header("Agent")]
     public GameObject patrollingGameObject; //Unity GameObject that patrols
+    public GameObject patrollingGameObjectUI;
     private int nextPatrolLocation; //Keeps track of the patrol location
 	
 	// Update is called once per frame
@@ -45,5 +46,8 @@ public class Patrol : MonoBehaviour {
         else
             localScale.x = -1;
         patrollingGameObject.transform.localScale = localScale;
+        
+        patrollingGameObjectUI.transform.localScale = localScale;
+        
     }
 }
