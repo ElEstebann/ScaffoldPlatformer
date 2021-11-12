@@ -29,7 +29,7 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void StartGame(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Stage1");
     }
 
     public void ShowCredits(){
