@@ -29,6 +29,7 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void StartGame(){
+        PlayerPrefs.SetInt("score", 0);
         SceneManager.LoadScene("Stage1");
     }
 
