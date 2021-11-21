@@ -59,14 +59,16 @@ public class PlayerHealth : MonoBehaviour {
     //ONTriggerEnter2D is called when another trigger collider hits any of the player's colliders
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
+        
         if (collision.gameObject.tag == "HurtBox" && this.gameObject.transform.position.y - collision.gameObject.transform.position.y >= 0)
         {
-            characterController2D.m_RigidBody2D.velocity = new Vector2(characterController2D.m_RigidBody2D.velocity.x, 25);
-            inHurtBox = true;
-
+			if (!(characterController2D.IsGrounded()))
+			{
+				characterController2D.m_RigidBody2D.velocity = new Vector2(characterController2D.m_RigidBody2D.velocity.x, 25);
+				inHurtBox = true;
+			}
         }
-        */
+        
         if (collision.gameObject.tag == "HitBox")
         {
             if (!characterController2D.m_Immune && !inHurtBox)
