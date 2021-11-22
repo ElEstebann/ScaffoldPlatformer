@@ -8,32 +8,55 @@ public class EnemyShooter : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField] public float fireDelay;
     private bool shooting = false;
+    private bool inRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && !shooting)//if Player hits the weakspot then
+
+        if (collision.tag == "Player" && !shooting)//if Player hits the weakspot then
         {
             //Debug.Log(collision.transform.position.x);
-            ShootAtTarget(collision.transform);
-            StartCoroutine(bulletTimer());
+            //ShootAtTarget(collision.transform);
+            StartCoroutine(bulletTimer(collision.transform));
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            inRange = true;
+        }
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            inRange = false;
+        }
+
+    }
+
+
     void ShootAtTarget(Transform target)
     {
         Vector3 targ = target.transform.position;
         targ.z = 0f;
- 
+
         Vector3 objectPos = transform.position;
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
@@ -42,15 +65,21 @@ public class EnemyShooter : MonoBehaviour
         firePoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         //firePoint.transform.Rotate(0,0,Vector2.Angle(target.position,firePoint.position));
-        Instantiate(bulletPrefab,firePoint.position, firePoint.rotation);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         //Debug.Log("Angle: " + Vector2.Angle(target.position,firePoint.position));
         //firePoint.transform.Rotate(0,0,Vector2.Angle(target.position,firePoint.position) * -1);
     }
 
-    IEnumerator bulletTimer(){
+    IEnumerator bulletTimer(Transform target)
+    {
         shooting = true;
 
         yield return new WaitForSeconds(fireDelay);
+        if (inRange)
+        {
+            ShootAtTarget(target);
+        }
+
         shooting = false;
     }
 }
