@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 212310293995588690}
   - component: {fileID: 50575574833041584}
   - component: {fileID: 2147770919455632366}
+  - component: {fileID: 7838966159210173793}
   m_Layer: 0
   m_Name: SnailEnemy
   m_TagString: Untagged
@@ -185,6 +186,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7838966159210173793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560732185758450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10f0659fbf9a4b419f7205e8cd19cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581326935744380
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +287,7 @@ MonoBehaviour:
   healthBar: {fileID: 8387973828711718519}
   mainObject: {fileID: 1560732185758450}
   anim: {fileID: 2147770919455632366}
-  bank: {fileID: 0}
+  score: {fileID: 0}
 --- !u!1 &385454183281507669
 GameObject:
   m_ObjectHideFlags: 0

@@ -2470,6 +2470,41 @@ PrefabInstance:
       propertyPath: bank
       value: 
       objectReference: {fileID: 165502971}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561324585920698608, guid: dda7916924b759248bf4647e57f00af7,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3694129421471955834, guid: dda7916924b759248bf4647e57f00af7,
         type: 3}
       propertyPath: m_Enabled
@@ -3302,7 +3337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771737825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b10f0659fbf9a4b419f7205e8cd19cb4, type: 3}
   m_Name: 
