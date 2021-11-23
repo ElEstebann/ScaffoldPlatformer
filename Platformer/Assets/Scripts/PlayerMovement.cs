@@ -13,12 +13,13 @@ public class PlayerMovement : MonoBehaviour {
     bool jump = false;
     public CharacterController2D controller;
     public static bool inputEnabled = true;
+    private Animator anim; //If using animations
     AudioSource jumpsound;
     //private bool shootingEnabled = true;
 
     void Start()
     {
-
+        anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController2D>();
         jumpsound = GetComponent<AudioSource>();
         
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
+                anim.SetBool("isJumping", true);
+                anim.SetBool("isRunning", false);
+                anim.Play("flash");
                 jumpsound.Play();
                 
             }
@@ -58,6 +62,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
+        anim.SetBool("isJumping", false);
+        anim.SetBool("inAir", false);
     }
 
     public void EnableInput(){
