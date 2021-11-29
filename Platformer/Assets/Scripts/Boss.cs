@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     /// <summary>
     /// Patrol takes a GameObject and makes such object to patrol specified locations at the given speed
     /// </summary>
-
+    public Animator anim;
     public float moveSpeed; //Patrol speed
     public float jumpSpeed;
     public float jumpHeight;
@@ -18,6 +18,11 @@ public class Boss : MonoBehaviour
 
     public GameObject rockPrefab;
     public List<Transform> rockLocations;
+    public int rockNum;
+    private int currentRock = 0;
+    public float rockDelay;
+
+    private bool canRock = true;
 
     [Space]
     [Header("Agent")]
@@ -55,7 +60,9 @@ public class Boss : MonoBehaviour
 
             else if (functionNum == 1)
             {
+                anim.SetBool("Running",true);
                 PatrolArea();
+                
             }
             else if (functionNum == 2)
             {
@@ -63,7 +70,12 @@ public class Boss : MonoBehaviour
             }
             else if (functionNum == 3)
             {
-                DropRocks();
+                if(canRock){
+                    DropRocks();
+                    StartCoroutine(rockTimer());
+
+                }
+                
             }
         }
 
@@ -91,6 +103,7 @@ public class Boss : MonoBehaviour
             nextPatrolLocation = (nextPatrolLocation + 1) % patrolLocations.Count;//Prevents IndexOutofBound by looping back through list
             actionCompleted = true;
             Debug.Log("PatrollArea completed, waiting " + transitionDelay + "seconds");
+            anim.SetBool("Running",false);
             Flip();
         }
     }
@@ -129,7 +142,7 @@ public class Boss : MonoBehaviour
     private void DropRocks()
     {
         Instantiate(rockPrefab,rockLocations[0].position, rockLocations[0].rotation);
-        actionCompleted = true;
+        //actionCompleted = true;
     }
 
     //Makes the patrollingGameObject always be facing the next patrol location
@@ -156,5 +169,17 @@ public class Boss : MonoBehaviour
         Debug.Log("Delay over, functionNum set to: " + functionNum);
 
 
+    }
+    IEnumerator rockTimer()
+    {
+        canRock = false;
+        yield return new WaitForSeconds(rockDelay);
+        Debug.Log("Throwing rock #" + currentRock);
+        currentRock++;
+        if(currentRock >= rockNum){
+            actionCompleted = true;
+            currentRock = 0;
+        }
+        canRock = true;
     }
 }

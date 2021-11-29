@@ -141,15 +141,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd5ff585eb87b24cbff97027228d952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 7217681309001270431}
   moveSpeed: 10
   jumpSpeed: 20
   jumpHeight: 0.05
   patrolLocations:
   - {fileID: 5206851808370063469}
   - {fileID: 5207105688658147147}
+  rockPrefab: {fileID: 3460311801914719619, guid: 0e6d138707c41e94e94b0890c89b5f00,
+    type: 3}
+  rockLocations: []
+  rockNum: 3
+  rockDelay: 0.5
   patrollingGameObject: {fileID: 8782507280482166147}
   patrollingGameObjectUI: {fileID: 9104368692425569776}
-  transitionDelay: 5
+  transitionDelay: 3
 --- !u!1 &5211883845844383419
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,11 +623,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212310293995588690, guid: e5a255ed8cce0e548b8f77659399cf4e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 1b78d13801c17b24fa4b58be9feae382,
+        type: 3}
     - target: {fileID: 2098957188477397609, guid: e5a255ed8cce0e548b8f77659399cf4e,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2147770919455632366, guid: e5a255ed8cce0e548b8f77659399cf4e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9ca78f9ee8a785b47be78b98894999f0, type: 2}
     - target: {fileID: 2164099561930651949, guid: e5a255ed8cce0e548b8f77659399cf4e,
         type: 3}
       propertyPath: m_IsActive
@@ -649,15 +666,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a255ed8cce0e548b8f77659399cf4e, type: 3}
---- !u!1 &8782507280482166147 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1560732185758450, guid: e5a255ed8cce0e548b8f77659399cf4e,
+--- !u!95 &7217681309001270431 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2147770919455632366, guid: e5a255ed8cce0e548b8f77659399cf4e,
     type: 3}
   m_PrefabInstance: {fileID: 8783198694040039281}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8787775264010138903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4577981022837350, guid: e5a255ed8cce0e548b8f77659399cf4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8783198694040039281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8782507280482166147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1560732185758450, guid: e5a255ed8cce0e548b8f77659399cf4e,
     type: 3}
   m_PrefabInstance: {fileID: 8783198694040039281}
   m_PrefabAsset: {fileID: 0}
