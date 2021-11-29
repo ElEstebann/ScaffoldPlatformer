@@ -16,6 +16,9 @@ public class Boss : MonoBehaviour
     [Header("Agent's patrol areas")]
     public List<Transform> patrolLocations; //List of all the Transform locations the gameObject will patrol
 
+    public GameObject rockPrefab;
+    public List<Transform> rockLocations;
+
     [Space]
     [Header("Agent")]
     public GameObject patrollingGameObject; //Unity GameObject that patrols
@@ -57,6 +60,10 @@ public class Boss : MonoBehaviour
             else if (functionNum == 2)
             {
                 JumpArea();
+            }
+            else if (functionNum == 3)
+            {
+                DropRocks();
             }
         }
 
@@ -119,6 +126,12 @@ public class Boss : MonoBehaviour
 
     }
 
+    private void DropRocks()
+    {
+        Instantiate(rockPrefab,rockLocations[0].position, rockLocations[0].rotation);
+        actionCompleted = true;
+    }
+
     //Makes the patrollingGameObject always be facing the next patrol location
     private void Flip()
     {
@@ -137,7 +150,8 @@ public class Boss : MonoBehaviour
 
         yield return new WaitForSeconds(transitionDelay);
 
-        functionNum = Random.Range(1, 3);
+        functionNum = Random.Range(1, 4);
+        //functionNum = 3;
         //functionNum = 2;
         Debug.Log("Delay over, functionNum set to: " + functionNum);
 

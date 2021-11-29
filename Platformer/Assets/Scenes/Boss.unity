@@ -3048,7 +3048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225849500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -65.46272, y: -5.992117, z: 134.98439}
+  m_LocalPosition: {x: -65.462715, y: -5.992117, z: 134.98439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 760538713}
@@ -16630,6 +16630,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5857992876527571429, guid: 2be6a6d82ec0b9d44aafaad35a5d4568,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857992876527571429, guid: 2be6a6d82ec0b9d44aafaad35a5d4568,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857992876527571429, guid: 2be6a6d82ec0b9d44aafaad35a5d4568,
+        type: 3}
+      propertyPath: rockPrefab
+      value: 
+      objectReference: {fileID: 3460311801914719619, guid: 0e6d138707c41e94e94b0890c89b5f00,
+        type: 3}
+    - target: {fileID: 5857992876527571429, guid: 2be6a6d82ec0b9d44aafaad35a5d4568,
+        type: 3}
+      propertyPath: rockLocations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857992876527571429, guid: 2be6a6d82ec0b9d44aafaad35a5d4568,
+        type: 3}
+      propertyPath: rockLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 926242133}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be6a6d82ec0b9d44aafaad35a5d4568, type: 3}
 --- !u!1 &1438229542
