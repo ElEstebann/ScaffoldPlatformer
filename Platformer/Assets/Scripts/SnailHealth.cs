@@ -20,20 +20,26 @@ public class SnailHealth : MonoBehaviour
     {
         anim = GetComponentInParent<Animator>(); //get animator component
         currentHealth = maxHealth;
+        Debug.Log("MAxhealth: " + maxHealth);
         score = FindObjectOfType<ScoreDisplay>();
         healthBar.fillAmount = currentHealth;
         snailSprite = GetComponentInParent<SpriteRenderer>();
         characterController2D = GetComponent<CharacterController2D>();
+        Debug.Log("current health: " + currentHealth);
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        Debug.Log("current health: " + currentHealth);
         float health = currentHealth / maxHealth;
         healthBar.fillAmount = health;
+
         if (currentHealth == 0)      //If health goes to 0 or below, call GameOver in GameManager
         {
+
             StartCoroutine(Deactivate());
+
             score.currentScore += 30;
             //gameObject.SetActive(false);
         }
