@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Blink : MonoBehaviour
 {
+    /*
     private SpriteRenderer snailSprite;
     private CharacterController2D characterController2D;
     private bool inHurtBox = false;
@@ -57,4 +58,5 @@ public class Blink : MonoBehaviour
                 snailSprite.enabled = true;
         }
     }
+    */
 }

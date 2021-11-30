@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class SnailHealth : MonoBehaviour
 {
-	public float maxHealth;
-	public float currentHealth;
-	public Image healthBar;
-	public GameObject mainObject;
-	private SpriteRenderer snailSprite;
-	private CharacterController2D characterController2D;
+    public float maxHealth;
+    public float currentHealth;
+    public Image healthBar;
+    public GameObject mainObject;
+    private SpriteRenderer snailSprite;
+    private CharacterController2D characterController2D;
     public Animator anim;
     public ScoreDisplay score;
     private bool inHurtBox = false;
@@ -21,23 +21,23 @@ public class SnailHealth : MonoBehaviour
         anim = GetComponentInParent<Animator>(); //get animator component
         currentHealth = maxHealth;
         score = FindObjectOfType<ScoreDisplay>();
-		healthBar.fillAmount = currentHealth;
+        healthBar.fillAmount = currentHealth;
         snailSprite = GetComponentInParent<SpriteRenderer>();
         characterController2D = GetComponent<CharacterController2D>();
     }
 
-	public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-		float health = currentHealth / maxHealth;
-		healthBar.fillAmount = health;
-		if(currentHealth == 0)      //If health goes to 0 or below, call GameOver in GameManager
-		{
+        float health = currentHealth / maxHealth;
+        healthBar.fillAmount = health;
+        if (currentHealth == 0)      //If health goes to 0 or below, call GameOver in GameManager
+        {
             StartCoroutine(Deactivate());
             score.currentScore += 30;
             //gameObject.SetActive(false);
         }
-	}
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,7 +53,7 @@ public class SnailHealth : MonoBehaviour
 
         if (collision.gameObject.tag == "PlayerAttack")
         {
-            this.StartCoroutine(BlinkSprite());
+            //this.StartCoroutine(BlinkSprite());
             this.TakeDamage(1);
         }
     }
