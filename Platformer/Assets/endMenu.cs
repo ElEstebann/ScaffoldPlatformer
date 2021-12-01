@@ -23,6 +23,8 @@ public class endMenu : MonoBehaviour
             endUI.SetActive(true);
             player.DisableInput();
             endButton.Select();
+            Time.timeScale = 0;
+        
         }
     }
 }
