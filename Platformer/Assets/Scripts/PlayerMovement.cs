@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour {
                 jump = true;
                 anim.SetBool("isJumping", true);
                 anim.SetBool("isRunning", false);
-                anim.Play("flash");
-                jumpsound.Play();
+                //anim.Play("flash");
+                //jumpsound.Play();
                 
             }
             /*

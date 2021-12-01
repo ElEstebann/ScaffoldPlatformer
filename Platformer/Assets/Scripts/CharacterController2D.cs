@@ -31,11 +31,13 @@ public class CharacterController2D : MonoBehaviour {
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private Animator anim; //If using animations
+    AudioSource jumpsound;
 
     void Awake()
     {
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>(); //get animator component
+        jumpsound = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -91,6 +93,8 @@ public class CharacterController2D : MonoBehaviour {
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
+            anim.Play("flash");
+            jumpsound.Play();
         }
 
         //Air Jump
@@ -109,7 +113,10 @@ public class CharacterController2D : MonoBehaviour {
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0); //resets gravity if player jumps in the air so we the momentum doesnt kill the jump force
  
         if (m_RigidBody2D.velocity.y < 0) //we are falling, therefore increase gravity down
+        {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+            
+        }
         
         else if (m_RigidBody2D.velocity.y > 0  && !Input.GetButton("Jump"))//Tab Jump
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime; 
