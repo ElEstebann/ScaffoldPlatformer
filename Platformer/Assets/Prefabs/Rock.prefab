@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5801d0c22a565f34d8dffa0b7bae1441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallHeight: 5
+  fallHeight: 6
   animator: {fileID: 7903655013956835671}
 --- !u!50 &3460311801914719623
 Rigidbody2D:

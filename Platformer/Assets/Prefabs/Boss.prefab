@@ -151,7 +151,7 @@ MonoBehaviour:
   rockPrefab: {fileID: 3460311801914719619, guid: 0e6d138707c41e94e94b0890c89b5f00,
     type: 3}
   rockLocations: []
-  rockNum: 3
+  rockNum: 4
   rockDelay: 0.5
   patrollingGameObject: {fileID: 8782507280482166147}
   patrollingGameObjectUI: {fileID: 9104368692425569776}
