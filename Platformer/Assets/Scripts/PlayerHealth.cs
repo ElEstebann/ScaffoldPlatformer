@@ -71,7 +71,28 @@ public class PlayerHealth : MonoBehaviour {
         
         if (collision.gameObject.tag == "HitBox")
         {
-            if (!characterController2D.m_Immune && !inHurtBox)
+            if (!characterController2D.m_Immune /*&& !inHurtBox */)
+            {
+                StartCoroutine(BlinkSprite());
+                StartCoroutine(DamageState());
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "HurtBox" && this.gameObject.transform.position.y - collision.gameObject.transform.position.y >= 0)
+        {
+			if (!(characterController2D.IsGrounded()))
+			{
+				characterController2D.m_RigidBody2D.velocity = new Vector2(characterController2D.m_RigidBody2D.velocity.x, 25);
+				inHurtBox = true;
+			}
+        }
+        
+        if (collision.gameObject.tag == "HitBox")
+        {
+            if (!characterController2D.m_Immune /*&& !inHurtBox */)
             {
                 StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
